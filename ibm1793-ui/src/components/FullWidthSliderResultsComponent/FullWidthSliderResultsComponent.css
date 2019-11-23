@@ -1,0 +1,57 @@
+.ibm-band h2{
+  color: #ffffff;
+  font-size: 1.990rem;
+  margin-top: 30px;
+  margin-bottom: 6px;
+}
+
+.ibm-band.results{
+  padding-bottom: 0;
+}
+
+.resuls-grid svg{
+  color: #0062ff;
+  fill: #0062ff;
+  margin-left: 5px;
+}
+
+.resuls-grid h2{
+  font-size: 1.715rem;
+  font-weight: 400;
+}
+
+.resuls-grid p{
+  font-size: 0.86em;
+}
+
+.resuls-grid .ibm-info{
+  padding: 0 15px;
+  margin-bottom: 28px;
+}
+
+.resuls-grid .ibm-info p{
+  color: #3d3d3d;
+  font-size: 0.76em;
+}
+
+.resuls-grid .ibm-info h3{
+  margin-top: 10px;
+  height: 92px;
+  font-size: 1.09rem;;
+}
+
+@media only screen and (max-width: 1225px) and (min-width: 0){
+  .resuls-grid .ibm-info h3{
+    height: 140px;
+  }
+}
+
+@media only screen and (max-width: 999px) and (min-width: 0){
+  .hidden-info{
+    display: none;
+  }
+
+  .resuls-grid .ibm-info h3{
+    height: 70px;
+  }
+}

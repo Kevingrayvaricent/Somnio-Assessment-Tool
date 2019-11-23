@@ -1,0 +1,8 @@
+---
+applications:
+- instances: 1
+  name: ibm1793
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack
+  memory: 256M
+  domain: mybluemix.net
+  host: ibm1793

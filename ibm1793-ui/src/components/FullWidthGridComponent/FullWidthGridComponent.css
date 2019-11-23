@@ -1,0 +1,104 @@
+.bright-blue-background{
+    background: #0062ff;
+    color: #fff;
+}
+
+.bright-blue-background h3{
+    font-weight: 300 !important;
+    font-size: 1.2625rem !important;
+    width: 100%;
+    line-height: 1.875rem;
+    padding-bottom: 0 !important;
+    margin-top: 10px;
+}
+
+.ibm-full-width-grid{
+    color: #fff;
+}
+
+.ibm-full-width-grid .ibm-padding-content{
+    padding: 20px 16%;
+}
+
+.ibm-full-width-grid div{
+    padding: 35px 15% 30px 15%;
+}
+
+.ibm-full-width-grid img{
+    margin-bottom: 25px;
+}
+
+.ibm-full-width-grid  h4{
+    font-weight: bold !important;
+    font-size: 1.20rem;
+}
+
+.ibm-full-width-grid p{
+    font-weight: 100 !important;
+}
+
+.bright-blue-background a{
+    color: #fff;
+    clear: both;
+    cursor: pointer;
+    font-weight: 100 !important;
+}
+
+svg.arrow-rigth {
+    fill: #fff;
+    position: relative;
+    top: 3px;
+    margin-left: 12px;
+  }
+
+.black-ligther-background{
+    background: #252525;
+}
+
+.greyish-brown-background{
+    background: #3d3d3d;
+}
+
+.greyish-brown-two-background{
+    background: #565656;
+}
+
+@media only screen and (max-width: 999px) and (min-width: 760px){
+    .ibm-full-width-grid .ibm-padding-content{
+        padding: 20px 11%;
+    }
+    .ibm-full-width-grid div{
+        padding: 35px 11% 30px 11%;
+    }
+
+    .ibm-full-width-grid h3{
+        font-size: 1.5925rem !important;
+    }
+}
+
+@media only screen and (max-width: 760px){
+    .ibm-full-width-grid img{
+        width: 58px;
+    }
+
+    .ibm-full-width-grid .ibm-padding-content {
+        padding: 20px 8%;
+    }
+
+    .ibm-full-width-grid div{
+        padding: 35px 8% 30px 8%;
+    }
+}
+
+@media only screen and (max-width: 579px) and (min-width: 0px){
+    .ibm-full-width-grid-a{
+        order: 2;
+    }
+    .ibm-full-width-grid div {
+        padding: 30px 7% 25px 7%;
+    }
+    .ibm-full-width-grid .ibm-padding-content{
+        padding: 20px 5%;
+    }
+}
+

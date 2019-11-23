@@ -1,0 +1,348 @@
+.bx--text-input {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  letter-spacing: .16px;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  background-color: #f4f4f4;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 1rem;
+  color: #161616;
+  border: none;
+  border-bottom: 1px solid #8d8d8d;
+  -webkit-transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);
+  transition: background-color 70ms cubic-bezier(.2,0,.38,.9),outline 70ms cubic-bezier(.2,0,.38,.9);
+}
+
+a{
+  cursor: pointer;
+}
+
+// .bx--number {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font-size: 100%;
+//   font-family: inherit;
+//   vertical-align: baseline;
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+// }
+
+// .bx--number__input-wrapper {
+//    display: flex;
+//    align-items: center;
+// }
+
+// .bx--number input[type='number'] {
+//   font-size: .875rem;
+//   font-weight: 400;
+//   line-height: 1.125rem;
+//   letter-spacing: .16px;
+//   outline: 2px solid transparent;
+//   outline-offset: -2px;
+//   box-sizing: border-box;
+//   display: inline-flex;
+//   width: 100%;
+//   min-width: 9.375rem;
+//   padding-left: 1rem;
+//   padding-right: 2rem;
+//   font-weight: 300;
+//   height: 2.5rem;
+//   color: #161616;
+//   background-color: #f4f4f4;
+//   border: none;
+//   border-radius: 0;
+//   border-bottom: 1px solid #8d8d8d;
+//   transition: background-color 70ms cubic-bezier(0.2, 0, 0.38, 0.9),outline 70ms cubic-bezier(0.2, 0, 0.38, 0.9);
+//   -moz-appearance: textfield;
+// }
+
+// input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
+
+// input[type="number"] {
+//   -moz-appearance: textfield;
+// }
+
+// .bx--number__controls {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font-size: 100%;
+//   font-family: inherit;
+//   vertical-align: baseline;
+//   position: absolute;
+//   right: 0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .bx--number__control-btn {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   font-size: 100%;
+//   font-family: inherit;
+//   vertical-align: baseline;
+//   display: inline-block;
+//   background: none;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   border: 0;
+//   padding: 0;
+//   cursor: pointer;
+//   width: 100%;
+//   display: inline-flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 2rem;
+//   height: 1.25rem;
+//   color: #161616;
+// }
+
+// .bx--number__control-btn.up-icon svg {
+//   top: .3125rem;
+// }
+
+// .bx--number__control-btn svg {
+//    fill: currentColor; 
+//   position: relative;
+// }
+
+// .bx--number__control-btn.down-icon svg {
+//   top: -.3125rem;
+// }
+
+.bx--radio-button-group {
+  align-items: center;
+}
+
+.bx--radio-button-group {
+  border: none;
+}
+
+.bx--radio-button {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+  visibility: inherit;
+}
+
+.bx--radio-button__label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  letter-spacing: .16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.bx--radio-button-wrapper .bx--radio-button__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px 0;
+}
+
+.bx--radio-button-group--label-right .bx--radio-button__label, .bx--radio-button-wrapper.bx--radio-button-wrapper--label-right .bx--radio-button__label {
+  flex-direction: row;
+}
+
+.bx--radio-button__appearance {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #161616;
+  flex-shrink: 0;
+  height: 1.125rem;
+  width: 1.125rem;
+  margin-right: .5rem;
+}
+
+.bx--radio-button:checked+.bx--radio-button__label .bx--radio-button__appearance {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: #161616;
+}
+
+.bx--radio-button:checked+.bx--radio-button__label .bx--radio-button__appearance:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #161616;
+}
+
+input:focus {
+  outline: 2px solid #408bfc;
+}
+
+.ibm-nospacing.ibm-chevron-up-link{
+  display: none;
+  visibility: hidden;
+}
+
+.bx--slider-container {
+  display: flex;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none}
+
+.bx--slider__range-label {
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: .32px;
+  font-family: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  color: #161616;
+}
+
+.bx--radio-button:checked+.bx--radio-button__label .bx--radio-button__appearance:before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #161616;
+}
+
+.bx--slider {
+  position: relative;
+  width: 100%;
+  margin: 0 1rem;
+  max-width: 20rem;
+  min-width: 12.5rem;
+}
+
+.bx--slider__thumb {
+  position: absolute;
+  height: .875rem;
+  width: .875rem;
+  background: #161616;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px transparent, inset 0 0 0 2px transparent;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  transition: background 110ms cubic-bezier(0.2, 0, 0.38, 0.9),box-shadow 110ms cubic-bezier(0.2, 0, 0.38, 0.9),-webkit-transform 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  transition: transform 110ms cubic-bezier(0.2, 0, 0.38, 0.9),background 110ms cubic-bezier(0.2, 0, 0.38, 0.9),box-shadow 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  transition: transform 110ms cubic-bezier(0.2, 0, 0.38, 0.9),background 110ms cubic-bezier(0.2, 0, 0.38, 0.9),box-shadow 110ms cubic-bezier(0.2, 0, 0.38, 0.9),-webkit-transform 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+  cursor: pointer;
+  outline: none;
+  z-index: 3;
+}
+
+.bx--slider__track {
+  position: absolute;
+  width: 100%;
+  height: .125rem;
+  background: #e0e0e0;
+  cursor: pointer;
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+}
+
+.bx--slider__track:before {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  height: .25rem;
+  width: .125rem;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  top: -.3125rem;
+  background: #e0e0e0;
+}
+
+.bx--slider__filled-track {
+  position: absolute;
+  width: 100%;
+  height: .125rem;
+  background: #161616;
+  -webkit-transform-origin: left;
+  transform-origin: left;
+  pointer-events: none;
+  -webkit-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  transition: background 110ms cubic-bezier(0.2, 0, 0.38, 0.9);
+}
+
+.bx--slider__input {
+  display: none;
+}
+
+.bx--slider__range-label:last-of-type {
+  margin-right: 1rem;
+}
+
+.bx--slider-text-input, .bx-slider-text-input {
+  width: 4rem;
+  height: 2.5rem;
+  padding: 0;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.ibm-rule{
+  border-color: #d8d8d8 !important;
+  margin-bottom: 30px !important;
+}
+
+.bx--label {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  font-size: .75rem;
+  font-weight: 400;
+  line-height: 1rem;
+  letter-spacing: .32px;
+  color: #393939;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-bottom: .5rem;
+  line-height: 1rem;
+}

@@ -1,0 +1,129 @@
+$pale-blue-color: #edf4ff;
+$dodger-blue-color: #408bfc;
+
+.assessment{
+  &-label{
+  color: #bebebe;
+  font-size: 12px;
+  padding-bottom: 8px;
+  }
+
+  .ibm-col-1-1{
+    padding-bottom: 58px;
+  }
+
+  h2{
+    color: #408bfc;
+    margin-top: 20px;
+    padding-bottom: 22px;
+    font-size: 2.6rem;
+    line-height: 3.1275rem;
+  }
+
+  .ibm-btn-pri{
+    color: #ffffff;
+    background-color: #0062ff;
+    font-weight: 300;
+    border: none;
+    font-size: 14px;
+    width: 195px;
+    text-align: left;
+  }
+
+  .ibm-btn-pri.submit{
+    width: 178px;
+  }
+
+  svg{
+    float: right;
+  }
+}
+
+.progress{
+  &-container{
+    background: $pale-blue-color;
+    width: 104px;
+    height: 8px;
+    margin-bottom: 40px;
+  }
+
+  &-per-question{
+    background: $dodger-blue-color;
+    height: 8px;
+    &-1-10{
+      width: 10%;
+    }
+    &-2-10{
+      width: 20%;
+    }
+    &-3-10{
+      width: 30%;
+    }
+    &-4-10{
+      width: 40%;
+    }
+    &-5-10{
+      width: 50%;
+    }
+    &-6-10{
+      width: 60%;
+    }
+    &-7-10{
+      width: 70%;
+    }
+    &-8-10{
+      width: 80%;
+    }
+    &-9-10{
+      width: 90%;
+    }
+  }
+}
+
+.ibm-previus-link{
+  color: #565656 !important;
+  cursor: pointer;
+}
+.ibm-previus-link:hover{
+  text-decoration: none;
+}
+
+.ibm-previus-link span{
+  margin-right: 5px;
+  font-size: 20px;
+  
+}
+
+
+.required{
+  outline-color: red;
+}
+
+.ibm-rule.ibm-alternate.full-size{
+  border-top: 2px solid #d8d8d8;
+}
+
+@media only screen and (max-width: 999px) and (min-width: 760px){
+  #assessment img{
+    width: 65px;
+  }
+
+  .assessment h2{
+    font-size: 2rem;
+    line-height: 2.4275rem;
+  }
+}
+
+@media only screen and (max-width: 580px){
+  .assessment h2{
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.42em;
+  }
+
+  #assessment img{
+    width: 56px;
+  }
+}
+
+  
