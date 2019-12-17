@@ -18,6 +18,7 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType0Font;
 import org.apache.pdfbox.pdmodel.interactive.action.PDActionURI;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationLink;
+import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderStyleDictionary;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
@@ -40,6 +41,10 @@ public class SpmPdfGenerator {
 			PDFont fontMedium = PDType0Font.load(doc, new FileInputStream(ResourceUtils.getFile("classpath:font/IBMPlexSans-Medium.ttf")));
 			PDFont fontBold = PDType0Font.load(doc, new FileInputStream(ResourceUtils.getFile("classpath:font/IBMPlexSans-Bold.ttf")));
 			PDFont fontRegular = PDType0Font.load(doc, new FileInputStream(ResourceUtils.getFile("classpath:font/IBMPlexSans-Regular.ttf")));
+			
+			// no border
+			PDBorderStyleDictionary noBorder = new PDBorderStyleDictionary();
+			noBorder.setWidth(0);
 			
 			// Blue color
 			RGBColor blueColor = new RGBColor(109, 165, 253);
@@ -73,6 +78,7 @@ public class SpmPdfGenerator {
 				position.setUpperRightX(515.0F);
 				position.setUpperRightY(521.0598F + 12f);
 				txtLink.setRectangle(position);
+				txtLink.setBorderStyle(noBorder);
 				
 				PDAnnotationLink txtLink2 = new PDAnnotationLink();
 				PDRectangle position2 = new PDRectangle();
@@ -81,6 +87,7 @@ public class SpmPdfGenerator {
 				position2.setUpperRightX(425.0F);
 				position2.setUpperRightY(508.0598F + 12f);
 				txtLink2.setRectangle(position2);
+				txtLink2.setBorderStyle(noBorder);
 				
 				PDActionURI action = new PDActionURI();
 				action.setURI("https://www.ibm.com/account/reg/us-en/signup?formid=urx-22202");
@@ -113,7 +120,7 @@ public class SpmPdfGenerator {
 				// Write Q3/Q4 Result copy
 				if (json.question4 == 0) {
 					PdfUtil.writeLine2Color(contentPage2, fontRegular, 9.0F, 315.0F, 307.7516F, "You indicated you have ", nf.format(people), " sales representatives.   ", Color.BLACK, blueColor);
-					PdfUtil.writeLine2Color(contentPage2, fontRegular, 9.0F, 315.0F, 294.7516F, "You also indicated that ", answer, ", you will be hiring additional ", Color.BLACK, blueColor);
+					PdfUtil.writeLine2Color(contentPage2, fontRegular, 9.0F, 315.0F, 294.7516F, "You also indicated that ", answer.toLowerCase(), ", you will be hiring additional ", Color.BLACK, blueColor);
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 281.7516F, "sales reps in the next three years. As your company grows ", Color.BLACK);
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 268.7516F, "and hires new salespeople, roles and specific territories will ", Color.BLACK);
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 255.75159F, "be defined and quota targets assigned, complicating your ", Color.BLACK);
@@ -122,7 +129,7 @@ public class SpmPdfGenerator {
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 204.5116F, "your sales organization. ", Color.BLACK);
 				} else {
 					PdfUtil.writeLine2Color(contentPage2, fontRegular, 9.0F, 315.0F, 307.7516F, "You indicated you have ", nf.format(people), " sales representatives.   ", Color.BLACK, blueColor);
-					PdfUtil.writeLine2Color(contentPage2, fontRegular, 9.0F, 315.0F, 294.7516F, "You also indicated that ", answer, ", you will not be hiring additional ", Color.BLACK, blueColor);
+					PdfUtil.writeLine2Color(contentPage2, fontRegular, 9.0F, 315.0F, 294.7516F, "You also indicated that ", answer.toLowerCase(), ", you will not be hiring additional ", Color.BLACK, blueColor);
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 281.7516F, "sales reps in the next three years. Organizations with 100 ", Color.BLACK);
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 268.7516F, "salespeople or more find that managing sales incentive ", Color.BLACK);
 					PdfUtil.writeLine(contentPage2, fontRegular, 9.0F, 315.0F, 255.75159F, "compensation with spreadsheets and homegrown solutions ", Color.BLACK);
@@ -239,6 +246,7 @@ public class SpmPdfGenerator {
 				if (incentiveSchedule == 2) { PdfUtil.writeLine(contentPage4, fontMedium, 9.0F, 36.6F, 520.6938F, "— Annually", blueColor); } else { PdfUtil.writeLine(contentPage4, fontLight, 9.0F, 36.6F, 520.6938F, "— Annually", Color.WHITE); }
 				
 				// Write Question 7 copy
+				float staticTesxtSpacing = 563.4238F - 25F;
 				if (incentiveSchedule == 0) {
 					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 641.4238F, "You indicated you calculate and pay out sales incentive ", Color.WHITE);
 					PdfUtil.writeLine2Color(contentPage4, fontRegular, 9.0F, 315.0F, 628.4238F, "compensation to the sales team on a ", "monthly", " basis. Most ", Color.WHITE, blueColor);
@@ -255,6 +263,8 @@ public class SpmPdfGenerator {
 					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 615.4238F, "Organizations paying sales incentive compensation on a ", Color.WHITE);
 					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 602.4238F, "quarterly basis still need to complete the common tasks ", Color.WHITE);
 					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 589.4238F, "and activities as those paying on a monthly basis.", Color.WHITE);
+					
+					staticTesxtSpacing = 589.4238F-25F;
 				}
 				if (incentiveSchedule == 2) {
 					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 641.4238F, "You indicated you calculate and pay out sales incentive ", Color.WHITE);
@@ -268,11 +278,11 @@ public class SpmPdfGenerator {
 								
 				// Write Question 7 static copy
 				if (incentiveSchedule < 2) {
-					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 538.1838F, "Your sales compensation team may feel the monthly payout ", Color.WHITE);
-					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 525.1838F, " business process is overwhelming, or too intense. ", Color.WHITE);
+					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, staticTesxtSpacing, "Your sales compensation team may feel the monthly payout ", Color.WHITE);
+					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, staticTesxtSpacing-13F, "business process is overwhelming, or too intense. ", Color.WHITE);
 				} else {
-					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 538.1838F, "Are you considering monthly and/or quarterly ", Color.WHITE);
-					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, 525.1838F, "compensation plans?", Color.WHITE);
+					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, staticTesxtSpacing, "Are you considering monthly and/or quarterly ", Color.WHITE);
+					PdfUtil.writeLine(contentPage4, fontRegular, 9.0F, 315.0F, staticTesxtSpacing-13F, "compensation plans?", Color.WHITE);
 				}
 				
 				// Write Question 8 answer
@@ -349,34 +359,34 @@ public class SpmPdfGenerator {
 				int confidence = json.question9;
 				switch (confidence) {
 					case 1:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "", "1 ", " 2  3  4  5  6  7  8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "", "1 ", " 2  3  4  5  6  7  8  9  10", Color.BLACK, blueColor);
 						break;
 					case 2:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1 ", " 2 ", " 3  4  5  6  7  8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1 ", " 2 ", " 3  4  5  6  7  8  9  10", Color.BLACK, blueColor);
 						break;
 					case 3:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2 ", " 3 ", " 4  5  6  7  8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2 ", " 3 ", " 4  5  6  7  8  9  10", Color.BLACK, blueColor);
 						break;
 					case 4:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3 ", " 4 ", " 5  6  7  8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3 ", " 4 ", " 5  6  7  8  9  10", Color.BLACK, blueColor);
 						break;
 					case 5:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3  4 ", " 5 ", " 6  7  8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3  4 ", " 5 ", " 6  7  8  9  10", Color.BLACK, blueColor);
 						break;
 					case 6:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5 ", " 6 ", " 7  8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5 ", " 6 ", " 7  8  9  10", Color.BLACK, blueColor);
 						break;
 					case 7:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6 ", " 7 ", " 8  9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6 ", " 7 ", " 8  9  10", Color.BLACK, blueColor);
 						break;
 					case 8:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6  7 ", " 8 ", " 9  10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6  7 ", " 8 ", " 9  10", Color.BLACK, blueColor);
 						break;
 					case 9:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6  7  8 ", " 9 ", " 10", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6  7  8 ", " 9 ", " 10", Color.BLACK, blueColor);
 						break;
 					case 10:
-						PdfUtil.writeLine2Color(contentPage5, fontLight, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6  7  8  9 ", " 10", "", Color.BLACK, blueColor);
+						PdfUtil.writeNumbers2Color(contentPage5, fontLight, fontMedium, 9.0F, 36.6F, 535.7904F, "1  2  3  4  5  6  7  8  9 ", " 10", "", Color.BLACK, blueColor);
 						break;
 				}
 				
@@ -428,6 +438,7 @@ public class SpmPdfGenerator {
 				position.setUpperRightX(241F);
 				position.setUpperRightY(593.35F + 14f);
 				txtLink.setRectangle(position);
+				txtLink.setBorderStyle(noBorder);
 				
 				PDAnnotationLink txtLink2 = new PDAnnotationLink();
 				PDRectangle position2 = new PDRectangle();
@@ -436,6 +447,7 @@ public class SpmPdfGenerator {
 				position2.setUpperRightX(205.0F);
 				position2.setUpperRightY(579.35F + 14f);
 				txtLink2.setRectangle(position2);
+				txtLink2.setBorderStyle(noBorder);
 				
 				PDAnnotationLink txtLink3 = new PDAnnotationLink();
 				PDRectangle position3 = new PDRectangle();
@@ -444,6 +456,7 @@ public class SpmPdfGenerator {
 				position3.setUpperRightX(155.0F);
 				position3.setUpperRightY(565.35F + 14f);
 				txtLink3.setRectangle(position3);
+				txtLink3.setBorderStyle(noBorder);
 				
 				//TODO 315.4902F, 431.37F
 				PDAnnotationLink txtLink4 = new PDAnnotationLink();
@@ -453,6 +466,7 @@ public class SpmPdfGenerator {
 				position4.setUpperRightX(540.4902F);
 				position4.setUpperRightY(431.37F + 9f);
 				txtLink4.setRectangle(position4);
+				txtLink4.setBorderStyle(noBorder);
 				
 				PDActionURI action = new PDActionURI();
 				action.setURI("https://www.ibm.com/account/reg/us-en/signup?formid=urx-35868");
